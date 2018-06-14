@@ -13,6 +13,8 @@
 		DECAFDDA20D16F780003B902 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECAFDD820D16F780003B902 /* Main.storyboard */; };
 		DECAFDDC20D16F7B0003B902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECAFDDB20D16F7B0003B902 /* Assets.xcassets */; };
 		DECAFDDF20D16F7B0003B902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECAFDDD20D16F7B0003B902 /* LaunchScreen.storyboard */; };
+		DECAFDE720D1728A0003B902 /* ViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECAFDE620D1728A0003B902 /* ViewController+ARSessionDelegate.swift */; };
+		DECAFDEB20D174910003B902 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECAFDEA20D174910003B902 /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DECAFDDB20D16F7B0003B902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DECAFDDE20D16F7B0003B902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DECAFDE020D16F7B0003B902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DECAFDE620D1728A0003B902 /* ViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
+		DECAFDEA20D174910003B902 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 		DECAFDD120D16F780003B902 /* Tracked Images */ = {
 			isa = PBXGroup;
 			children = (
+				DECAFDEA20D174910003B902 /* StatusViewController.swift */,
 				DECAFDD220D16F780003B902 /* AppDelegate.swift */,
 				DECAFDD420D16F780003B902 /* art.scnassets */,
 				DECAFDD620D16F780003B902 /* ViewController.swift */,
 				DECAFDD820D16F780003B902 /* Main.storyboard */,
+				DECAFDE620D1728A0003B902 /* ViewController+ARSessionDelegate.swift */,
 				DECAFDDB20D16F7B0003B902 /* Assets.xcassets */,
 				DECAFDDD20D16F7B0003B902 /* LaunchScreen.storyboard */,
 				DECAFDE020D16F7B0003B902 /* Info.plist */,
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DECAFDEB20D174910003B902 /* StatusViewController.swift in Sources */,
+				DECAFDE720D1728A0003B902 /* ViewController+ARSessionDelegate.swift in Sources */,
 				DECAFDD720D16F780003B902 /* ViewController.swift in Sources */,
 				DECAFDD320D16F780003B902 /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25A3U75D5Z;
 				INFOPLIST_FILE = "Tracked Images/Info.plist";
@@ -293,6 +302,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kalopsiac.Tracked-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25A3U75D5Z;
 				INFOPLIST_FILE = "Tracked Images/Info.plist";
@@ -311,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kalopsiac.Tracked-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

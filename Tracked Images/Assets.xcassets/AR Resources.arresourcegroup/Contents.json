@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "resources" : [
+    {
+      "filename" : "fight club image.arreferenceimage"
+    },
+    {
+      "filename" : "homer image.arreferenceimage"
+    },
+    {
+      "filename" : "isa image.arreferenceimage"
+    },
+    {
+      "filename" : "prague image.arreferenceimage"
+    }
+  ]
+}
