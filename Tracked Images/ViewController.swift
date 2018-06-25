@@ -16,6 +16,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var magicSwitch: UISwitch!
     @IBOutlet weak var blurView: UIVisualEffectView!
     
+    // Image nodes
+    var isaImageNode = SCNNode()
+    var isaImageFound = false
+    var homerImageNode = SCNNode()
+    var homerImageFound = false
+    var fightClubImageNode = SCNNode()
+    var fightClubImageFound = false
+    var pragueImageNode = SCNNode()
+    var pragueImageFound = false
+    
     // Create video player
     let isaVideoPlayer: AVPlayer = {
         //load Isa video from bundle
@@ -140,19 +150,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
             if imageAnchor.referenceImage.name == "prague image" {
                 // Set AVPlayer as the plane's texture and play
-                plane.firstMaterial?.diffuse.contents = self.pragueVideoPlayer
-                self.pragueVideoPlayer.play()
-                self.pragueVideoPlayer.volume = 0.4
+                plane.firstMaterial?.diffuse.contents = pragueVideoPlayer
+                pragueVideoPlayer.play()
+                pragueVideoPlayer.volume = 0.4
+                pragueImageNode = node
+                pragueImageFound = true
             } else if imageAnchor.referenceImage.name == "fight club image" {
-                plane.firstMaterial?.diffuse.contents = self.fightClubVideoPlayer
-                self.fightClubVideoPlayer.play()
+                plane.firstMaterial?.diffuse.contents = fightClubVideoPlayer
+                fightClubVideoPlayer.play()
+                fightClubImageNode = node
+                fightClubImageFound = true
             } else if imageAnchor.referenceImage.name == "homer image" {
-                plane.firstMaterial?.diffuse.contents = self.homerVideoPlayer
-                self.homerVideoPlayer.play()
+                plane.firstMaterial?.diffuse.contents = homerVideoPlayer
+                homerVideoPlayer.play()
+                homerImageNode = node
+                homerImageFound = true
             } else {
-                plane.firstMaterial?.diffuse.contents = self.isaVideoPlayer
-                self.isaVideoPlayer.play()
-                self.isaVideoPlayer.isMuted = true
+                plane.firstMaterial?.diffuse.contents = isaVideoPlayer
+                isaVideoPlayer.play()
+                isaVideoPlayer.isMuted = true
+                isaImageNode = node
+                isaImageFound = true
             }
             
             let planeNode = SCNNode(geometry: plane)
@@ -165,5 +183,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
         return node
+    }
+    
+    // MARK: - Image Tracking Behavior
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let pointOfView = sceneView.pointOfView else { return }
+
+        sceneView.isNode(isaImageNode, insideFrustumOf: pointOfView) && isaImageFound ? isaVideoPlayer.play() : isaVideoPlayer.pause()
+
+        sceneView.isNode(homerImageNode, insideFrustumOf: pointOfView) && homerImageFound ? homerVideoPlayer.play() : homerVideoPlayer.pause()
+
+        sceneView.isNode(fightClubImageNode, insideFrustumOf: pointOfView) && fightClubImageFound ? fightClubVideoPlayer.play() : fightClubVideoPlayer.pause()
+
+        sceneView.isNode(pragueImageNode, insideFrustumOf: pointOfView) && pragueImageFound ? pragueVideoPlayer.play() : pragueVideoPlayer.pause()
     }
 }
