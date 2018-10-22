@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OqC-eh-srV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OqC-eh-srV">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +24,9 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldA-m6-UgP">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="31.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="31.333333333333332"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pMr-au-DEg">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="31.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" text="Tracking status" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xe6-DP-ytj" userLabel="Messages label">
@@ -113,13 +113,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </sceneKitView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQy-mu-WCn">
-                                <rect key="frame" x="163" y="746" width="51" height="31"/>
+                                <rect key="frame" x="163" y="727" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchOnMagic:" destination="OqC-eh-srV" eventType="valueChanged" id="9K1-dd-c9S"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toC-GR-hJ8">
-                                <rect key="frame" x="161.66666666666666" y="722" width="51.666666666666657" height="21"/>
+                                <rect key="frame" x="161.66666666666666" y="697" width="51.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -144,21 +144,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1Va-fj-pHE" firstAttribute="bottom" secondItem="toC-GR-hJ8" secondAttribute="bottom" constant="60" id="241-WQ-hfZ"/>
                             <constraint firstAttribute="trailing" secondItem="BI8-g7-CxW" secondAttribute="trailing" id="2Za-G2-832"/>
-                            <constraint firstItem="1Va-fj-pHE" firstAttribute="top" secondItem="NQy-mu-WCn" secondAttribute="bottom" constant="-733" id="3Lg-ax-8hV"/>
+                            <constraint firstItem="1Va-fj-pHE" firstAttribute="bottom" secondItem="NQy-mu-WCn" secondAttribute="bottom" constant="20" id="3Lg-ax-8hV"/>
                             <constraint firstAttribute="bottom" secondItem="7ly-nZ-YtB" secondAttribute="bottom" id="3vW-7M-HNR"/>
-                            <constraint firstItem="NQy-mu-WCn" firstAttribute="centerX" secondItem="toC-GR-hJ8" secondAttribute="centerX" id="77T-Py-xWc"/>
                             <constraint firstItem="37w-GD-rpc" firstAttribute="top" secondItem="1Va-fj-pHE" secondAttribute="top" id="Aed-8p-6xU"/>
                             <constraint firstItem="7ly-nZ-YtB" firstAttribute="top" secondItem="O4b-An-aHH" secondAttribute="top" id="CAJ-0N-sjB"/>
                             <constraint firstItem="1Va-fj-pHE" firstAttribute="trailing" secondItem="7ly-nZ-YtB" secondAttribute="trailing" id="LY9-el-wM0"/>
                             <constraint firstItem="BI8-g7-CxW" firstAttribute="leading" secondItem="O4b-An-aHH" secondAttribute="leading" id="O6L-AQ-VXm"/>
                             <constraint firstItem="toC-GR-hJ8" firstAttribute="centerX" secondItem="7ly-nZ-YtB" secondAttribute="centerX" id="OYN-Lw-K5W"/>
+                            <constraint firstItem="NQy-mu-WCn" firstAttribute="centerX" secondItem="7ly-nZ-YtB" secondAttribute="centerX" id="QCe-ao-B3n"/>
                             <constraint firstItem="BI8-g7-CxW" firstAttribute="top" secondItem="O4b-An-aHH" secondAttribute="top" id="ecB-AL-VQS"/>
                             <constraint firstItem="37w-GD-rpc" firstAttribute="leading" secondItem="1Va-fj-pHE" secondAttribute="leading" id="iiO-5v-orX"/>
                             <constraint firstAttribute="bottom" secondItem="BI8-g7-CxW" secondAttribute="bottom" id="jQ5-KN-DOO"/>
                             <constraint firstItem="7ly-nZ-YtB" firstAttribute="leading" secondItem="1Va-fj-pHE" secondAttribute="leading" id="k37-Nt-QWi"/>
                             <constraint firstItem="1Va-fj-pHE" firstAttribute="trailing" secondItem="37w-GD-rpc" secondAttribute="trailing" id="oex-mh-CkJ"/>
-                            <constraint firstItem="1Va-fj-pHE" firstAttribute="top" secondItem="toC-GR-hJ8" secondAttribute="bottom" constant="-699" id="uoY-0h-TA0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Va-fj-pHE"/>
                     </view>
