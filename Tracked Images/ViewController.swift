@@ -138,6 +138,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             // Create a plane
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            plane.firstMaterial?.isDoubleSided = true
             if imageAnchor.referenceImage.name == "prague image" {
                 // Set AVPlayer as the plane's texture and play
                 plane.firstMaterial?.diffuse.contents = self.pragueVideoPlayer
@@ -157,8 +158,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             let planeNode = SCNNode(geometry: plane)
             
-            // Rotate the plane to match the anchor
-            planeNode.eulerAngles.x = -.pi / 2
+            // Position the plane to hover perpendicular above the anchor
+            planeNode.position.y += Float(imageAnchor.referenceImage.physicalSize.height * 1.5)
+            
+            // Fully rotate the plane around its y-axis
+            let rotateAction = SCNAction.rotateBy(x: 0, y: 2 * .pi, z: 0, duration: 30)
+            let loopSequence = SCNAction.repeatForever(rotateAction)
+            planeNode.runAction(loopSequence)
+            
+            // Slightly bob the plane up and down along the y-axis
+            let bobDownAction = SCNAction.move(by: SCNVector3(0, -2, 0), duration: 3)
+            bobDownAction.timingMode = .easeInEaseOut
+            let bobUpAction = SCNAction.move(by: SCNVector3(0, 2, 0), duration: 3)
+            bobUpAction.timingMode = .easeInEaseOut
+            let waitAction = SCNAction.wait(duration: 1)
+            let bobSequence = SCNAction.sequence([waitAction, bobDownAction, waitAction, bobUpAction])
+            let bobLoop = SCNAction.repeatForever(bobSequence)
+            planeNode.runAction(bobLoop)
             
             // Add plane node to parent
             node.addChildNode(planeNode)
