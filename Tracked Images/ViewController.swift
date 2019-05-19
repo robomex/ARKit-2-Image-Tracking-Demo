@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var magicSwitch: UISwitch!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    var webView = UIWebView()
     
     // Create video player
     let isaVideoPlayer: AVPlayer = {
@@ -81,6 +82,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Hook up status view controller callback(s).
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
+        }
+        
+        if let url = URL(string: "https://www.youtube.com") {
+            webView.allowsInlineMediaPlayback = true
+            let request = URLRequest(url: url)
+            webView.loadRequest(request)
         }
     }
     
@@ -150,9 +157,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 plane.firstMaterial?.diffuse.contents = self.homerVideoPlayer
                 self.homerVideoPlayer.play()
             } else {
-                plane.firstMaterial?.diffuse.contents = self.isaVideoPlayer
-                self.isaVideoPlayer.play()
-                self.isaVideoPlayer.isMuted = true
+                DispatchQueue.main.async {
+                    self.webView.frame = CGRect(x: 0, y: 0, width: plane.width * 100, height: plane.height * 100)
+                    plane.firstMaterial?.diffuse.contents = self.webView
+                }
             }
             
             let planeNode = SCNNode(geometry: plane)
