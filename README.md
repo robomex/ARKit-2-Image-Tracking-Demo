@@ -7,4 +7,4 @@ There was a request for video that floats above/perpendicular to the recognized 
 
 ![ARKit 2 Image Tracking Demo Gif](https://github.com/robomex/ARKit-2-Image-Tracking-Demo/blob/master/ARKit-2-Tracked-Images-Demo.gif)
 
-Credit to http://anthonytori.com  for the awesome Prague drone footage.
+Credit to Anthony Tori for the awesome Prague drone footage.
